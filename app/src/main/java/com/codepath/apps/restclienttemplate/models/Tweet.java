@@ -3,15 +3,19 @@ package com.codepath.apps.restclienttemplate.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Tweet {
 
     public String body;
     public String createdAt;
     public User user;
+
+    public Tweet(){}
 
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -26,7 +30,6 @@ public class Tweet {
         for (int i = 0; i < jsonArray.length(); i++) {
             tweets.add(fromJSON(jsonArray.getJSONObject(i)));
         }
-
         return tweets;
     }
 }
